@@ -1,0 +1,20 @@
+.followers-container {
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+}
+
+.follower {
+  border: 1px solid black;
+  width:20%;
+  margin:2%;
+  padding:1%;
+}
+
+body {
+ background: linear-gradient(141deg, #6ed6a9 0%, #1edbc2 51%, #209ac7 75%);
+}
+
+.user-card {
+  margin:2% 2% 0 2%;
+}
