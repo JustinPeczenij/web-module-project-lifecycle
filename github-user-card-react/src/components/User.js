@@ -10,7 +10,7 @@ class User extends React.Component{
         }
     }
     componentDidMount() {
-        axios.get(this.props.userData.followers_url)
+        axios.get('https://api.github.com/users/justinpeczenij/followers')
         .then(res => {
             console.log(res.data)
             this.setState({
@@ -26,14 +26,17 @@ class User extends React.Component{
     render() {
         const { userData } = this.props 
         return (
-            <div>
-                <h2>{userData.name}</h2>
-                <a href={userData.url}>{userData.url}</a>
-                <h4>{userData.login}</h4>
-                <p>{userData.location}</p>
-                <p>{userData.followers}</p>
-                <p>{userData.following}</p>
-                <div> Followers
+            <div className='user-container'>
+                <div className='user-card'>
+                    <h2>{userData.name}</h2>
+                    <a href={userData.url}>{userData.url}</a>
+                    <h4>Username: {userData.login}</h4>
+                    <p>Location: {userData.location}</p>
+                    <p>Followers: {userData.followers}</p>
+                    <p>Following: {userData.following}</p>
+                    <h3>Followers:</h3>
+                </div>
+                <div className='followers-container'> 
                     {this.state.followers.map(follower => {
                         return <Follower follower={follower} key={follower.id}/>
                     })}
